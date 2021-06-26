@@ -14,7 +14,8 @@ task_4 = ['woord 4?', '', 'story-4']
 repeat = True
 
 def PlaySound(sound):
-    playsound(f'{AUDIO_URL}{sound}.mp3')
+    # playsound(f'{AUDIO_URL}{sound}.mp3')
+    print('hello')
 
 def awnserLoop(tasks, currectAwnser):
     question = False
