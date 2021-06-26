@@ -23,13 +23,15 @@ def awnserLoop(tasks, currectAwnser):
         # TODO display lcd tasks question
         mylcd.lcd_display_string(tasks[0], 1)
         awnser = input(tasks[0])
-        
+        mylcd.lcd_display_string(awnser, 2)
+
         if (awnser != currectAwnser):
             PlaySound('try-again')
         else:
             if tasks[1] == '':
                 # TODO display lcd goed gedaan
                 mylcd.lcd_display_string('goed gedaan', 1)
+
                 print('goed gedaan')
                 PlaySound[2]
                 # TODO display lcd goed gedaan
