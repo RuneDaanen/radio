@@ -2,6 +2,8 @@ import os
 from playsound import playsound
 import I2C_driver
 
+import pygame
+
 mylcd = I2C_driver.lcd()
 
 AUDIO_URL = './assets/audio/'
@@ -15,7 +17,13 @@ repeat = True
 
 def PlaySound(sound):
     # playsound(f'{AUDIO_URL}{sound}.mp3')
+    pygame.mixer.music.load(f'{AUDIO_URL}{sound}.mp3')
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy() == True:
+        continue
     print('hello')
+
+def typing(input)
 
 def awnserLoop(tasks, currectAwnser):
     question = False
@@ -23,6 +31,7 @@ def awnserLoop(tasks, currectAwnser):
         # TODO display lcd tasks question
         mylcd.lcd_display_string(tasks[0], 1)
         awnser = input(tasks[0])
+        n = eval(input("Enter price: "))
         mylcd.lcd_display_string(awnser, 2)
 
         if (awnser != currectAwnser):
