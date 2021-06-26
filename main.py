@@ -16,6 +16,7 @@ task_4 = ['woord 4?', '', 'story-4']
 repeat = True
 
 def PlaySound(sound):
+    pygame.mixer.init()
     # playsound(f'{AUDIO_URL}{sound}.mp3')
     pygame.mixer.music.load(f'{AUDIO_URL}{sound}.mp3')
     pygame.mixer.music.play()
