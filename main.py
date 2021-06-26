@@ -2,7 +2,6 @@ import os
 from playsound import playsound
 import I2C_driver
 
-from pygame import mixer
 
 mylcd = I2C_driver.lcd()
 
@@ -16,11 +15,7 @@ task_4 = ['woord 4?', '', 'story-4']
 repeat = True
 
 def PlaySound(sound):
-    mixer.init()
-    # playsound(f'{AUDIO_URL}{sound}.mp3')
-    sound = mixer.Sound(f'{AUDIO_URL}{sound}.mp3')
-    sound.play()
-    mixer.quit()
+    os.system(f'omxplayer {AUDIO_URL}{sound}.mp3')
     print('hello')
 
 def awnserLoop(tasks, currectAwnser):
