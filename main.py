@@ -20,7 +20,7 @@ def PlaySound(sound):
     # playsound(f'{AUDIO_URL}{sound}.mp3')
     sound = mixer.Sound(f'{AUDIO_URL}{sound}.mp3')
     sound.play()
-    pygame.quit()
+    mixer.quit()
     print('hello')
 
 def awnserLoop(tasks, currectAwnser):
