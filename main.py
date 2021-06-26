@@ -23,8 +23,6 @@ def PlaySound(sound):
         continue
     print('hello')
 
-def typing(input)
-
 def awnserLoop(tasks, currectAwnser):
     question = False
     while question == False:
