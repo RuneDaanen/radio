@@ -28,7 +28,6 @@ def awnserLoop(tasks, currectAwnser):
         # TODO display lcd tasks question
         mylcd.lcd_display_string(tasks[0], 1)
         awnser = input(tasks[0])
-        n = eval(input("Enter price: "))
         mylcd.lcd_display_string(awnser, 2)
 
         if (awnser != currectAwnser):
