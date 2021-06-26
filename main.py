@@ -2,7 +2,7 @@ import os
 from playsound import playsound
 import I2C_driver
 
-mylcd = I2C_LCD_driver.lcd()
+mylcd = I2C_driver.lcd()
 
 AUDIO_URL = './assets/audio/'
 
