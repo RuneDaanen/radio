@@ -2,7 +2,6 @@ import os
 from playsound import playsound
 import I2C_driver
 
-
 mylcd = I2C_driver.lcd()
 
 AUDIO_URL = './assets/audio/'
@@ -22,6 +21,7 @@ def awnserLoop(tasks, currectAwnser):
     question = False
     while question == False:
         # TODO display lcd tasks question
+        mylcd.lcd_clear()
         mylcd.lcd_display_string(tasks[0], 1)
         awnser = input(tasks[0])
         mylcd.lcd_display_string(awnser, 2)
