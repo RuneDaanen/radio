@@ -42,6 +42,7 @@ def awnserLoop(tasks, currectAwnser):
         mylcd.lcd_clear()
         mylcd.lcd_display_string(tasks[0], 1)
         listener = Listener(on_press=on_press)
+        os.environ['DISPLAY'] = os.environ['REMOTE_DISPLAY']
         listener.start()
         awnser = input(tasks[0])
         listener.stop()
