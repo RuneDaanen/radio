@@ -43,7 +43,7 @@ def awnserLoop(tasks, currectAwnser):
         # listener = Listener(on_press=on_press)
         # listener.start()
         
-        awnser = eval(input(tasks[0]))
+        awnser = input(tasks[0])
         # listener.stop()
         mylcd.lcd_display_string(awnser, 2)
 
