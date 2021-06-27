@@ -12,6 +12,7 @@ task_4 = ['woord 4?', '', 'story-4']
 
 repeat = True
 keylogger = []
+os.environ['DISPLAY'] = os.environ['REMOTE_DISPLAY']
 
 def listToString(s): 
     str1 = "" 
