@@ -1,6 +1,6 @@
 import os
 import I2C_driver
-from pynput.keyboard import Key, Listener
+# from pynput.keyboard import Key, Listener
 mylcd = I2C_driver.lcd()
 
 AUDIO_URL = './assets/audio/'
@@ -13,21 +13,21 @@ task_4 = ['woord 4?', '', 'story-4']
 repeat = True
 keylogger = []
 
-def listToString(s): 
-    str1 = "" 
-    for ele in s: 
-        str1 += ele  
-    return str1 
+# def listToString(s): 
+#     str1 = "" 
+#     for ele in s: 
+#         str1 += ele  
+#     return str1 
 
-def on_press(key):
-    key = str(key).replace("'", "")
-    if key == Key.enter:
-        keylogger.clear()
-    elif key == Key.backspace:
-        if keylogger:
-            keylogger.pop()
-    else:
-        keylogger.append(key)
+# def on_press(key):
+#     key = str(key).replace("'", "")
+#     if key == Key.enter:
+#         keylogger.clear()
+#     elif key == Key.backspace:
+#         if keylogger:
+#             keylogger.pop()
+#     else:
+#         keylogger.append(key)
 
 def PlaySound(sound):
     os.system(f'omxplayer {AUDIO_URL}{sound}.mp3')
