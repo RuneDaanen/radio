@@ -28,7 +28,6 @@ def on_press(key):
             keylogger.pop()
     else:
         keylogger.append(key)
-    mylcd.lcd_display_string(listToString(keylogger), 2)
 
 def PlaySound(sound):
     os.system(f'omxplayer {AUDIO_URL}{sound}.mp3')
