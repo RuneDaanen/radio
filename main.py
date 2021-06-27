@@ -1,6 +1,6 @@
 import os
-from playsound import playsound
 import I2C_driver
+from pynput.keyboard import Listener
 
 mylcd = I2C_driver.lcd()
 
@@ -13,9 +13,30 @@ task_4 = ['woord 4?', '', 'story-4']
 
 repeat = True
 
+keylogger = []
+
+def listToString(s): 
+    str1 = "" 
+    for ele in s: 
+        str1 += ele  
+    return str1 
+
+def on_press(key):
+    key = str(key).replace("'", "")
+    if key == 'Key.enter':
+        keylogger.clear()
+    elif key == 'Key.backspace':
+        if keylogger:
+            keylogger.pop()
+    else:
+        keylogger.append(key)
+    mylcd.lcd_display_string(listToString(keylogger), 2)
+
+with Listener(on_press=on_press) as listener :
+    listener.join()
+
 def PlaySound(sound):
     os.system(f'omxplayer {AUDIO_URL}{sound}.mp3')
-    print('hello')
 
 def awnserLoop(tasks, currectAwnser):
     question = False
@@ -24,18 +45,15 @@ def awnserLoop(tasks, currectAwnser):
         mylcd.lcd_clear()
         mylcd.lcd_display_string(tasks[0], 1)
         awnser = input(tasks[0])
-        mylcd.lcd_display_string(awnser, 2)
 
         if (awnser != currectAwnser):
             PlaySound('try-again')
         else:
             if tasks[1] == '':
-                # TODO display lcd goed gedaan
                 mylcd.lcd_display_string('goed gedaan', 1)
-
                 print('goed gedaan')
                 PlaySound[2]
-                # TODO display lcd goed gedaan
+                mylcd.lcd_display_string('Press Enter to start again', 1)
                 input('Press Enter to start again')
             else:
                 PlaySound(tasks[2])
