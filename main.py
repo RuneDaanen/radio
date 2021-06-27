@@ -38,10 +38,7 @@ def awnserLoop(tasks, currectAwnser):
         # TODO display lcd tasks question
         mylcd.lcd_clear()
         mylcd.lcd_display_string(tasks[0], 1)
-        listener = Listener(on_press=on_press)
-        listener.start()
         awnser = input(tasks[0])
-        listener.stop()
         if (awnser != currectAwnser):
             PlaySound('try-again')
         else:
