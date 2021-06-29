@@ -1,6 +1,6 @@
 import os
 import I2C_driver
-from pynput.keyboard import Key, Listener
+# from pynput.keyboard import Key, Listener
 mylcd = I2C_driver.lcd()
 
 AUDIO_URL = './assets/audio/'
@@ -13,23 +13,23 @@ task_4 = ['woord 4?', '', 'story-4']
 repeat = True
 keylogger = []
 
-def listToString(s): 
-    str1 = "" 
-    for ele in s: 
-        str1 += ele  
-    return str1 
+# def listToString(s): 
+#     str1 = "" 
+#     for ele in s: 
+#         str1 += ele  
+#     return str1 
 
-def on_press(key):
-    key = str(key).replace("'", "")
-    if key == 'Key.enter':
-        keylogger.clear()
-    elif key == 'Key.backspace':
-        if keylogger:
-            keylogger.pop()
-    else:
-        keylogger.append(key)
-    print(listToString(keylogger))
-    mylcd.lcd_display_string(listToString(keylogger), 2)
+# def on_press(key):
+#     key = str(key).replace("'", "")
+#     if key == 'Key.enter':
+#         keylogger.clear()
+#     elif key == 'Key.backspace':
+#         if keylogger:
+#             keylogger.pop()
+#     else:
+#         keylogger.append(key)
+#     print(listToString(keylogger))
+#     mylcd.lcd_display_string(listToString(keylogger), 2)
 
 
 def PlaySound(sound):
@@ -41,10 +41,10 @@ def awnserLoop(tasks, currectAwnser):
         # TODO display lcd tasks question
         mylcd.lcd_clear()
         mylcd.lcd_display_string(tasks[0], 1)
-        listener = Listener(on_press=on_press)
-        listener.start()
+        # listener = Listener(on_press=on_press)
+        # listener.start()
         awnser = input(tasks[0])
-        listener.stop()
+        # listener.stop()
         mylcd.lcd_display_string(awnser, 2)
 
         if (awnser != currectAwnser):
